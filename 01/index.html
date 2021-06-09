@@ -11,14 +11,25 @@
 
 <body>
     <div class="container">
-        <div class="img"></div>
+
+        <div class="img">
+            <img src="" id="avatar" alt="Imagen Avatar" class="avatar" />
+        </div>
+
         <div class="data">
             <label for="name"><b>Name</b></label>
-            <input type="text" id="name" name="name" placeholder="Introduce tu nombre"/>
+            <input type="text" id="name" name="name" placeholder="Introduce tu nombre" />
 
             <label for="lastName"><b>Last Name</b></label>
-            <input type="text" id="lastName" name="lastName"  placeholder="Introduce tus apellidos"/>
+            <input type="text" id="lastName" name="lastName" placeholder="Introduce tus apellidos" />
         </div>
+
+        <div class="actions">
+            <button type="button" onclick="showInput()">
+                Update
+            </button>
+        </div>
+
     </div>
 
     <script src="js/demo.js"></script>
