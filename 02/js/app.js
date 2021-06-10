@@ -1,5 +1,5 @@
 
-// Objeto Hoteles
+// Objeto hotels
 const hotels =
 {
     Baobab: {
@@ -22,9 +22,24 @@ const hotels =
     }
 }
 
-// Creamos variables
+//Objeto stars
+const stars = {
+    1:
+        "<span>&#9733;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span>",
+    2:
+        "<span>&#9733;</span><span>&#9733;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span>",
+    3:
+        "<span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span><span>&#9734;</span>",
+    4:
+        "<span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>",
+    5:
+        "<span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>",
+};
+
+// Selección hotel a evaluar
 let selectedHotel = prompt('Elige el hotel al que quiere realizar la reseña: Baobab, Costa y Villa');
 
+// Creamos variables
 let nameHotel = document.getElementById('nameHotel');
 let locationHotel = document.getElementById('locationHotel');
 let description = document.getElementById('description');
@@ -38,8 +53,9 @@ locationHotel.innerHTML = 'Ubicado en ' + hotels[selectedHotel].location;
 description.innerHTML = hotels[selectedHotel].description;
 imgHotel.src = hotels[selectedHotel].img;
 
+// Interactuamos con el usuario
 let respRating = prompt('Elige una puntuacion del 1 al 5');
-rating.innerHTML = respRating + ' estrellas';
+rating.innerHTML = stars[respRating];
 
 let respAnonymous = confirm('¿Quiere que la reseña sea anónima?');
 isAnonymous.checked = respAnonymous;
