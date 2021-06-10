@@ -13,6 +13,7 @@ let locationHotel = document.getElementById('locationHotel');
 let description = document.getElementById('description');
 let imgHotel = document.getElementById('imgHotel');
 let rating = document.getElementById('rating');
+let isAnonymous = document.getElementById('anonymous');
 
 // Asignamos valores
 nameHotel.innerHTML = 'Hotel ' + hotel.name;
@@ -24,3 +25,5 @@ let respRating = prompt ('Elige una puntuacion del 1 al 5');
 rating.innerHTML = respRating + ' estrellas';
 
 
+let respAnonymous = confirm('¿Quiere que la reseña sea anónima?');
+isAnonymous.checked = respAnonymous;
