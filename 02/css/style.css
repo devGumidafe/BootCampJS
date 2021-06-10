@@ -1,22 +1,24 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
 
 body {
     font-family: Arial, Helvetica, sans-serif;
   }
   
+  h1 {
+    text-align: center;
+    color: green
+  }
+  
   .row {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 -16px;
+    margin: 0 16px;
   }
   
   .container {
-    background-color: #f2f2f2;
+    background-color: #e6e6e6;
     padding: 5px 20px 15px 20px;
     border: 1px solid lightgrey;
-    border-radius: 3px;
+    border-radius: 8px;
   }
   
   .col-50 {
@@ -27,23 +29,5 @@ body {
   
   .image {
     height: 200px;
-    width: 400px;
+    width: 100%;
   }
-
-.container {
-  background-color: #f2f2f2;
-  padding: 5px 20px 15px 20px;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-}
-
-.col-50 {
-  flex: 50%;
-  padding: 16px;
-  box-sizing: border-box;
-}
-
-.image {
-  height: 200px;
-  width: 400px;
-}
