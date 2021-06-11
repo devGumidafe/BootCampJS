@@ -46,6 +46,7 @@ function printProductPrice(product) {
     console.log(`Total: ${total} €`);
 }
 
+console.log('---EJERCICIO CALCULAR PRECIO---');
 printProductPrice(product_1);
 
 
