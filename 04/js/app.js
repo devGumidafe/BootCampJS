@@ -1,25 +1,38 @@
-const sum = (numberOne, numberTwo) => numberOne + numberTwo;
-const minus = (numberOne, numberTwo) => numberOne - numberTwo;
-const multiply = (numberOne, numberTwo) => numberOne * numberTwo;
-const divide = (numberOne, numberTwo) => numberOne / numberTwo;
+const inputNumberOne = document.getElementById('numberOne');
+const inputNumberTwo = document.getElementById('numberTwo');
+const buttons = document.querySelectorAll('#btn');
+let result = document.getElementById('result');
+
 
 const calculator = (numberOne, numberTwo, operation) => {
-
     switch (operation) {
-       case '+':
-           return sum (numberOne, numberTwo);
-    
-           case '-':
-            return minus(numberOne, numberTwo);
+        case '+':
+            return numberOne + numberTwo;
 
-            case '*':
-           return multiply (numberOne, numberTwo);
+        case '-':
+            return numberOne - numberTwo;
 
-           case '/':
-           return divide (numberOne, numberTwo);
+        case '*':
+            return numberOne * numberTwo;
+
+        case '/':
+            return numberOne / numberTwo;
     }
 }
 
-const result = calculator(3, 3, '*');
 
-console.log(result);
+buttons.forEach(button => {
+    button.addEventListener('click', function () {
+
+        if (inputNumberOne.value === '' || inputNumberTwo.value === '') {
+            alert('Error debe introducir dos números');
+
+        } else if (inputNumberTwo.value == 0) {
+            alert('Error no se puede dividir por 0');
+
+        } else {
+            result.value = calculator(Number(inputNumberOne.value), Number(inputNumberTwo.value), button.innerText);
+        }
+    });
+})
+

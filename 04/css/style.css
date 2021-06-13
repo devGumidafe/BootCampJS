@@ -1,0 +1,20 @@
+.result {
+  margin-top: 20px;
+}
+
+.result input {
+  padding: 15px;
+  background-color: #dddde1;
+  text-align: right;
+}
+
+.input-number input {
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+div button {
+  width: 10%;
+  padding: 10px;
+  font-size: 20px;
+}

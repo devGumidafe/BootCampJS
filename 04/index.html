@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Calculadora</title>
 </head>
+
 <body>
-    
+    <h1>Calculadora</h1>
+
+    <div class='input-number'>
+        <div style="margin-bottom: 10px;">
+            <label for='numberOne'>NÚMERO 1</label>
+            <input id="numberOne" type="number" />
+        </div>
+
+        <div>
+            <label for="numberTwo">NÚMERO 2</label>
+            <input id="numberTwo" type="number" />
+        </div>
+    </div>
+
+    <div>
+        <button id="btn"> + </button>
+        <button id=btn> - </button>
+        <button id="btn"> * </button>
+        <button id="btn"> / </button>
+    </div>
+
+    <div class="result">
+        <label for="result">RESULTADO</label>
+        <input id="result" type="number" readonly />
+    </div>
+
     <script src="js/app.js"></script>
 </body>
+
 </html>
