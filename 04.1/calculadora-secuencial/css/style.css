@@ -1,0 +1,35 @@
+.container {
+  border: solid 1px;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  width: 50%;
+}
+
+.result {
+  margin-bottom: 20px;
+}
+
+.result input {
+  padding: 15px;
+  background-color: #dddde1;
+  text-align: right;
+  width: 80%;
+}
+
+.divNumberOne input {
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 40%;
+}
+
+.divNumberOne button {
+  padding: 10px;
+  width: 20%;
+}
+
+.divButtons button {
+  width: 20%;
+  padding: 10px;
+  font-size: 20px;
+}
