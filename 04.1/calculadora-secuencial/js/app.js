@@ -1,38 +1,62 @@
-const inputNumberOne = document.getElementById('numberOne');
-const inputNumberTwo = document.getElementById('numberTwo');
+const inputNumber = document.getElementById('number');
+let inputResult = document.getElementById('result');
 const buttons = document.querySelectorAll('#btn');
-let result = document.getElementById('result');
 
+let memory = 0;
+inputResult.value = memory;
 
-const calculator = (numberOne, numberTwo, operation) => {
+const calculator = (number, operation) => {
+
     switch (operation) {
         case '+':
-            return numberOne + numberTwo;
+            memory += number;
+            inputResult.value = number;
+            break;
 
         case '-':
-            return numberOne - numberTwo;
+            memory -= number;
+            inputResult.value = number;
+            break;
 
         case '*':
-            return numberOne * numberTwo;
+            memory *= number;
+            inputResult.value = number;
+            break;
 
         case '/':
-            return numberOne / numberTwo;
+            memory /= number;
+            inputResult.value = number;
+            break;
+
+        case '=':
+            inputResult.value = memory;
+            break;
+
+        case 'C':
+            memory = 0;
+            inputResult.value = memory;
+            break;
     }
 }
-
 
 buttons.forEach(button => {
     button.addEventListener('click', function () {
 
-        if (inputNumberOne.value === '' || inputNumberTwo.value === '') {
-            alert('Error debe introducir dos números');
+        if (inputNumber.value === '' && button.innerText !== '=' && button.innerText !== 'C') {
+            alert('Error debe introducir un número');
 
-        } else if (inputNumberTwo.value == 0) {
+        } else if (inputNumber.value == 0 && button.innerText === '/') {
             alert('Error no se puede dividir por 0');
 
+        } else if (memory === 0) {
+            memory = Number(inputNumber.value);
+            inputResult.value = memory;
+
         } else {
-            result.value = calculator(Number(inputNumberOne.value), Number(inputNumberTwo.value), button.innerText);
+            calculator(Number(inputNumber.value), button.innerText);
         }
+
+        inputNumber.value = '';
     });
 })
 
