@@ -106,3 +106,10 @@ printTable(cart);
 printResumeCart(cart);
 
 
+// Filtra por los productos que sean prime
+const filterPrime = () => {
+    return cart.filter(product => product.prime);
+}
+console.log('Prime',filterPrime())
+
+
