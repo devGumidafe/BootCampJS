@@ -14,12 +14,12 @@
     <div class="container">
         <table class="table">
             <tr>
-                <th>#</th>
+                <th>ACCIONES</th>
                 <th>ID</th>
                 <th>NOMBRE</th>
                 <th>PRECIO</th>
                 <th>CANTIDAD</th>
-                <th>PREMIUM</th>
+                <th>PRIME</th>
                 <th>TOTAL</th>
             </tr>
 
@@ -28,7 +28,14 @@
             </tbody>
         </table>
 
-        <h2>Total carrito: <span id="totalCart"></span></h2>
+        <div class="resume-cart">
+            <h2>Resumen carrito</h2>
+            <p>Subtotal: <span id="subTotal"></span> €</p>
+            <p>Envío: <span id="shipping"></span> €</p>
+            <p>Descuento: <span id="discount"></span> €</p>
+            <p>Total: <span id="total"></span> €</p>
+        </div>
+
     </div>
     <script src="js/app.js"></script>
 </body>

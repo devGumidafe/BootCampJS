@@ -4,7 +4,6 @@ body {
 
 h1 {
   text-align: center;
-  color: rgb(230, 107, 0);
 }
 
 .container {
@@ -18,6 +17,11 @@ h1 {
 }
 
 th{
-  background-color: blue;
+  background-color: rgb(230, 107, 0);
   color: white
+}
+
+.resume-cart{
+  padding: 20px;
+  font-size: 20px;
 }
