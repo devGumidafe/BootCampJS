@@ -66,9 +66,9 @@ const products = [
 // Elementos del DOM
 const productsContainer = document.getElementById('products-container');
 const btnCalculate = document.getElementById('btnCalculate');
-const subtotal = document.getElementById('subtotal');
-const iva = document.getElementById('iva');
-const total = document.getElementById('total');
+const spanSubtotal = document.getElementById('subtotal');
+const spanIVA = document.getElementById('iva');
+const spanTotal = document.getElementById('total');
 
 
 // FUNCIONES PARA CREAR LOS ELEMENTOS HTML
@@ -79,7 +79,11 @@ const createINPUT = (product) => {
     input.setAttribute("value", product.units);
     input.setAttribute("min", 0);
     input.setAttribute("max", product.stock)
-    input.addEventListener("change", event => product.units = Number(event.target.value));
+
+    input.addEventListener("change", (event) => {
+        product.units = Number(event.target.value);
+        activateButton(btnCalculate, products);
+    });
 
     return input;
 }
@@ -99,44 +103,65 @@ const createOL = (productList) => {
     const ol = document.createElement("ol");
     ol.setAttribute("class", "list-product");
 
-    for (product of productList) {
+    for (const product of productList) {
         ol.appendChild(createLI(product))
     }
 
     return ol;
 }
 
-const printList = (productList) => {
+const printProductList = (productList) => {
     productsContainer.appendChild(createOL(productList))
 }
 
 
 
 // FUNCIONES PARA CALCULAR EL PRECIO
-const getIVA = () => {
+const getIVA = (productList) => {
     let IVA = 0;
-
+    for (const product of productList) {
+        IVA += productCost(product) * (product.tax / 100);
+    }
+    return IVA;
 }
 
 const productCost = (product) => {
     let productCost = product.price * product.units;
-    return productCost * (1 + product.tax / 100);
+    return productCost;
 }
 
-const totalCost = (productList) => {
-    let totalCost = 0;
+const subtotalCost = (productList) => {
+    let subtotalCost = 0;
 
-    for (product of productList) {
-        totalCost += productCost(product);
+    for (const product of productList) {
+        subtotalCost += productCost(product);
     }
-    return totalCost;
+    return subtotalCost;
+}
+
+const totalCost = (productList) => subtotalCost(productList) + getIVA(productList);
+
+const printTotalCart = (productList) => {
+    spanSubtotal.innerHTML = subtotalCost(productList).toFixed(2);
+    spanIVA.innerHTML = getIVA(productList).toFixed(2);
+    spanTotal.innerHTML = totalCost(productList).toFixed(2);
+}
+
+const activateButton = (button, productList) => {
+    let units = 0;
+
+    for (const product of productList) {
+        units += product.units;
+    }
+
+    (units > 0) ? button.disabled = false : button.disabled = true;
 }
 
 
 // USAMOS LAS FUNCIONES
-printList(products);
+printProductList(products);
+activateButton(btnCalculate, products);
 
-btnCalculate.addEventListener('click', () => {
-    let t = totalCost(products);
-    total.textContent = t.toFixed(2)
+btnCalculate.addEventListener("click", () => {
+    printTotalCart(products);
 })
