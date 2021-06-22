@@ -2,41 +2,36 @@
 // Variables
 const plainAlphabet = "abcdefghijklmnopqrstuvwxyz:()!¡,'";
 const encryptedAlphabet = "qw,ert(yuio'pa:sdfg!hjklz¡xcv)bnm";
+const textAreaDecrypt = document.getElementById('textAreaDecrypt');
+const textAreaEncrypt = document.getElementById('textAreaEncrypt');
 
-const message = document.getElementById('message');
-const enigma = document.getElementById('enigma');
+textAreaDecrypt.value = '';
 
-const encryptedMessage = (message) => {
-    const arrayMessage = [...message];
+// Funciones
+const cleanText = (text) => text.trim().toLowerCase();
+
+const encryptedText = () => {
+    const text = cleanText(textAreaDecrypt.value);
     let encryptedText = '';
 
-    for (let i = 0; i < arrayMessage.length; i++) {
-        encryptedText += encryptedAlphabet[plainAlphabet.indexOf(arrayMessage[i])];
+    for (let i = 0; i < text.length; i++) {
+        encryptedText += (plainAlphabet.indexOf(text[i]) !== -1)
+            ? encryptedAlphabet[plainAlphabet.indexOf(text[i])]
+            : '';
     }
 
-    return encryptedText;
+    textAreaEncrypt.value = encryptedText;
 }
 
-const decryptedMessage = (message) => {
-    const arrayMessage = [...message];
+const decryptedText = () => {
+    const text = cleanText(textAreaEncrypt.value);
     let decryptedText = '';
 
-    for (let i = 0; i < arrayMessage.length; i++) {
-        decryptedText += plainAlphabet[encryptedAlphabet.indexOf(arrayMessage[i])]
+    for (let i = 0; i < text.length; i++) {
+        decryptedText += (encryptedAlphabet.indexOf(text[i]) !== -1)
+            ? plainAlphabet[encryptedAlphabet.indexOf(text[i])]
+            : '';
     }
 
-    return decryptedText;
+    textAreaDecrypt.value = decryptedText;
 }
-
-
-document
-    .getElementById('btnEncrypt')
-    .addEventListener('click', () => {
-        enigma.innerHTML = encryptedMessage(message.value);
-    });
-
-document
-    .getElementById('btnDecrypt')
-    .addEventListener('click', () => {
-        message.innerHTML = decryptedMessage(enigma.value);
-    });
