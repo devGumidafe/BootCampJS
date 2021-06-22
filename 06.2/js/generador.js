@@ -1,6 +1,6 @@
 const getRandom = (min, max) => Math.round(Math.random() * (max - min) + min);
 
-// Devuelve una lista de número aleatorios
+// Devuelve una lista de número aleatorios, sin repetir
 const randomPick = (n, min, max) => {
     if (n > (max - min + 1)) return null;
 
