@@ -3,7 +3,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-h1, h2{
+h1, h2 {
     text-align: center;
     margin-top: 30px;
 }
@@ -17,10 +17,11 @@ h1, h2{
     text-align: center;
 }
 
-.container div{
+.container div {
     text-align: right;
 }
-input{
+
+input {
     width: 60%;
     height: 20px;
     margin: 20px 0 20px 0;

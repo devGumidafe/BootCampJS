@@ -10,29 +10,32 @@
 </head>
 
 <body>
-    <h1>Calculadora</h1>
+    <h1>Calculadora de cambio de billetes y monedas</h1>
     <div class="container">
         <div>
             <label>Total:</label>
-            <input type="number" />
+            <input id="total" type="number" />
         </div>
 
         <div>
             <label>Importe entregado:</label>
-            <input type="number" />
+            <input id="money" type="number" />
         </div>
 
         <div>
-            <button>Calcular</button>
+            <button id="btnCalculate">Calcular</button>
         </div>
 
         <div>
-            <h2>Devolución</h2>
-            <hr/>
+            <h2>Devolución: <span id="refund"></span></h2>
+            <hr />
+        </div>
+        <div id="divChange" class="div-change">
+
         </div>
     </div>
 
-    <!-- <script src="js/agenda.js"></script> -->
+    <script src="js/agenda.js"></script>
     <script src="js/calculadora.js"></script>
 </body>
 
