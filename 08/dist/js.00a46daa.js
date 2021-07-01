@@ -425,7 +425,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 var printClientsAccounts = function printClientsAccounts() {
   var clients = (0, _dataBusiness.getClients)();
-  var ul = document.createElement("ul");
+  var ol = document.createElement("ol");
 
   var _iterator = _createForOfIteratorHelper(clients),
       _step;
@@ -434,7 +434,8 @@ var printClientsAccounts = function printClientsAccounts() {
     for (_iterator.s(); !(_step = _iterator.n()).done;) {
       var client = _step.value;
       var element = (0, _clientBusiness.getClientElement)(client);
-      ul.appendChild(element);
+      ol.appendChild(element);
+      ol.innerHTML += '<hr>';
     }
   } catch (err) {
     _iterator.e(err);
@@ -442,7 +443,7 @@ var printClientsAccounts = function printClientsAccounts() {
     _iterator.f();
   }
 
-  document.getElementById("root").appendChild(ul);
+  document.getElementById("root").appendChild(ol);
 };
 
 exports.printClientsAccounts = printClientsAccounts;
@@ -482,7 +483,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64688" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64814" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

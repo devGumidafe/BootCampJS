@@ -3,12 +3,13 @@ import { getClientElement } from './client-business';
 
 const printClientsAccounts = () => {
     const clients = getClients();
-    const ul = document.createElement("ul");
+    const ol = document.createElement("ol");
     for (let client of clients) {
         const element = getClientElement(client);
-        ul.appendChild(element);
+        ol.appendChild(element);
+        ol.innerHTML += '<hr>';
     }
-    document.getElementById("root").appendChild(ul);
+    document.getElementById("root").appendChild(ol);
 }
 
 export { printClientsAccounts };
