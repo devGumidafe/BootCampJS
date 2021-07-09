@@ -34,7 +34,7 @@ console.log(tail(companyList));
     4. Implementa una función llamada swapFirstToLast tal que, dado un array como entrada, devuelva un nuevo array donde el
     primer elemento ha sido colocado en la última posición.
 */
-const swapFirtToLast = ([first, ...props]) => props.concat(first);
+const swapFirtToLast = ([first, ...props]) => [...props,first];
 console.log(swapFirtToLast(companyList));
 
 
@@ -72,7 +72,6 @@ const numberArray = [2, 8, 30, 40, 50, 3, -1];
 
 const multArray = (numArray, num) => numArray.reduce((total, numArray) => total += numArray * num, 0)
 console.log(multArray(numberArray, 3));
-
 
 
 /* 
