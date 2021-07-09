@@ -12,7 +12,6 @@ console.log(swapFirstSecond(names))
     2. Implementa una función firstEqual tal que admita multiples strings como argumento de entrada así como un carácter cualquiera, 
     y devuelva un booleano indicando si todos los strings comienzan por dicho carácter o no. 
 */
-
 const firstEqual = (char, ...props) => props.every(prop => prop[0].toLowerCase() === char.toLowerCase());
 console.log(firstEqual('J', 'Javascript', 'Java', 'Jquery'));
 
