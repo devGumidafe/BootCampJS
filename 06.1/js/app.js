@@ -154,7 +154,7 @@ const activateButton = (button, productList) => {
         units += product.units;
     }
 
-    (units > 0) ? button.disabled = false : button.disabled = true;
+    button.disabled = units <= 0;
 }
 
 
